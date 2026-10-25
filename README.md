@@ -1,8 +1,10 @@
 # Session Transfer: Opera GX to Brave (Windows)
 
+> 🇫🇷 **En français** : extension Chromium temporaire, 100 % locale, qui exporte vos cookies de session depuis Opera GX dans un fichier chiffré par votre phrase de passe, puis les importe dans Brave. Elle utilise uniquement l'API officielle `chrome.cookies`. Un fichier de cookies donne accès à vos comptes : ne le partagez jamais et supprimez-le après usage. L'interface de l'outil est en français ; la documentation détaillée (dossier `docs`) est en anglais.
+
 A temporary, 100% local Chromium extension that exports your session cookies from Opera GX into a file encrypted with your passphrase, then imports them into Brave. It only uses the official `chrome.cookies` extension API: it does not read browser profiles from disk and does not bypass any encryption.
 
-**Honest status**: the logic and the encryption are covered by unit tests (21 passing). It has been used successfully by its author for Opera GX to Brave on Windows, but **results per website are not guaranteed** (see [docs/04-LIMITATIONS.md](docs/04-LIMITATIONS.md)). Provided as is, with no warranty.
+**Honest status**: the logic and the encryption are covered by unit tests (21 passing). It has been used successfully by its author, **only from Opera GX to Brave on Windows**; other browsers or systems are untested, and **results per website are not guaranteed** (see [docs/04-LIMITATIONS.md](docs/04-LIMITATIONS.md)). Provided as is, with no warranty.
 
 > **Warning**: a cookie file can give access to your accounts without a password or two-factor prompt. Never share or commit an exported `.stx` file, and delete it after use.
 
@@ -11,7 +13,7 @@ A temporary, 100% local Chromium extension that exports your session cookies fro
 ## Project tree
 
 ```
-session-transfer/
+opera-gx-to-brave-session-transfer/
 ├── README.md
 ├── LICENSE                         MIT
 ├── .gitignore                      Blocks *.stx exports and other secrets
