@@ -1,0 +1,19 @@
+# NEVER commit exported session files: they can give access to your accounts.
+*.stx
+session-transfer-*.stx
+
+# Any other secrets / exports that could end up here by mistake
+*.cookies
+*.cookies.json
+cookies*.json
+*.pem
+*.key
+.env
+
+# OS / editor noise
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
+.idea/
+node_modules/
