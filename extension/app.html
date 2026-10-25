@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Session Transfer</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <h1>Session Transfer</h1>
+    <p id="browser-info" class="muted"></p>
+  </header>
+
+  <div class="warn">
+    <strong>Attention.</strong> Un fichier de cookies donne accès à vos comptes, sans mot de passe ni double authentification.
+    Ici, il est chiffré par votre phrase de passe, mais gardez-le hors de tout cloud, ne le partagez jamais et supprimez-le dès que l'import est terminé.
+    Tout reste sur ce PC : cet outil n'a aucun accès réseau.
+  </div>
+
+  <nav>
+    <button id="tab-export" class="tab active" type="button">1. Exporter (Opera GX)</button>
+    <button id="tab-import" class="tab" type="button">2. Importer (Brave)</button>
+  </nav>
+
+  <section id="panel-export">
+    <h2>Vérifications</h2>
+    <ul id="checks" class="checks"></ul>
+    <label class="row"><input type="checkbox" id="exp-profile"> Je confirme que cette fenêtre appartient au profil <strong>Opera GX</strong> dont je veux exporter les sessions.</label>
+
+    <h2>Cookies à exporter</h2>
+    <button id="exp-scan" type="button">Analyser les cookies de ce profil</button>
+    <p id="exp-scan-info" class="muted"></p>
+    <div id="exp-domains" hidden></div>
+    <label class="row" id="exp-session-row" hidden><input type="checkbox" id="exp-session"> Inclure les cookies de session (sans date d'expiration)</label>
+
+    <h2>Protection du fichier</h2>
+    <div class="row">
+      <input type="password" id="exp-pass" autocomplete="new-password" placeholder="Phrase de passe (12 caractères minimum)">
+      <input type="password" id="exp-pass2" autocomplete="new-password" placeholder="Confirmer la phrase de passe">
+      <button id="exp-gen" type="button">Générer</button>
+    </div>
+    <p id="exp-gen-out" class="muted mono"></p>
+    <label class="row"><input type="checkbox" id="exp-ack"> Je comprends que le fichier exporté donne accès à mes comptes et que je dois le supprimer après l'import.</label>
+    <button id="exp-run" type="button" class="primary" disabled>Exporter et enregistrer le fichier chiffré</button>
+    <div id="exp-report"></div>
+    <button id="exp-delete" type="button" hidden>Annuler : supprimer le fichier qui vient d'être exporté</button>
+  </section>
+
+  <section id="panel-import" hidden>
+    <h2>Vérifications</h2>
+    <ul id="checks-import" class="checks"></ul>
+    <label class="row"><input type="checkbox" id="imp-profile"> Je confirme que cette fenêtre appartient au profil <strong>Brave</strong> dans lequel je veux importer les sessions.</label>
+
+    <h2>Fichier chiffré</h2>
+    <div class="row">
+      <input type="file" id="imp-file" accept=".stx,application/json">
+      <input type="password" id="imp-pass" autocomplete="off" placeholder="Phrase de passe">
+      <button id="imp-decrypt" type="button">Déchiffrer (en mémoire uniquement)</button>
+    </div>
+    <p id="imp-meta" class="muted"></p>
+
+    <div id="imp-step2" hidden>
+      <h2>Cookies à importer</h2>
+      <div id="imp-domains"></div>
+      <label class="row"><input type="checkbox" id="imp-session"> Importer aussi les cookies de session</label>
+      <label class="row"><input type="checkbox" id="imp-overwrite"> Écraser les cookies déjà présents dans Brave (déconseillé ; par défaut ils sont conservés)</label>
+      <button id="imp-analyze" type="button">Simuler l'import (aucune écriture)</button>
+      <div id="imp-preview"></div>
+      <button id="imp-run" type="button" class="primary" disabled>Importer dans Brave</button>
+      <p id="imp-progress" class="muted"></p>
+      <div id="imp-report"></div>
+      <button id="imp-finish" type="button" hidden>Terminer et effacer les données de la mémoire</button>
+    </div>
+  </section>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

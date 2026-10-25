@@ -1,0 +1,8 @@
+{
+  "name": "session-transfer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Tests locaux uniquement (aucune dependance). L extension elle-meme est dans extension/.",
+  "scripts": { "test": "node --test tests/crypto.test.mjs tests/cookies-core.test.mjs" }
+}

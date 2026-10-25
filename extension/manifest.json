@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Session Transfer (temporaire, 100 % local)",
+  "version": "1.0.0",
+  "description": "Exporte (Opera GX) puis importe (Brave) les cookies de session, dans un fichier chiffre par votre phrase de passe. Aucun reseau.",
+  "minimum_chrome_version": "119",
+  "permissions": ["cookies", "downloads"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "Session Transfer" },
+  "incognito": "not_allowed",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'"
+  }
+}
